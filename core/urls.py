@@ -16,10 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import StudentView
+from api.views import StudentView,SubjectView,SearchView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('get_all/', StudentView.as_view()),
-    path('rating_student/', StudentView.as_view()),
+    path('by_students/', StudentView.as_view()),
+    path('add_student/', StudentView.as_view()),
+    path('by_subjects/', SubjectView.as_view()),
+    path('rating/', SubjectView.as_view()),
+    path('get_student/<int:id>', SearchView.as_view()),
 ]
