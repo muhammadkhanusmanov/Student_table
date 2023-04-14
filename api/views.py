@@ -35,7 +35,7 @@ class SubjectView(View):
                 result[subject.name]=[]
 
         for subject in subjects:
-            result[subject.name].append({'stdent_name':subject.rating.name,'rating':subject.rate})
+            result[subject.name].append({'student_id':subject.rating.id,'stdent_name':subject.rating.name,'rating':subject.rate})
         return JsonResponse(result)
     def post(self,request:HttpRequest):
         data=request.body.decode()
